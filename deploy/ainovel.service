@@ -1,0 +1,14 @@
+[Unit]
+Description=AINOVEL novel generation agent service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/ainovel
+ExecStart=/opt/ainovel/.venv/bin/python web_api.py
+EnvironmentFile=-/opt/ainovel/deploy/ainovel.env
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
